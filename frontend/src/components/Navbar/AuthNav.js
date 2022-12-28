@@ -2,7 +2,7 @@ import { Button, Flex, Image, Text } from "@chakra-ui/react";
 import { toaster } from "evergreen-ui";
 import brandLogo from "../../assets/icons/brand-logo.svg";
 import { logoutIcon } from "../../assets/svgs/svg";
-import { logout, logoutAcct } from "../../firebase";
+import { logoutAcct } from "../../firebase";
 import { Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 
@@ -65,13 +65,12 @@ const AuthNav = () => {
               </Text>
             </MenuButton>
             <MenuList>
-              <MenuItem>
+              <MenuItem onClick={logoutAcct}>
                 <Flex
                   alignItems="center"
                   style={{ transition: "all 0.8s ease" }}
                   cursor="pointer"
                   ml="10px"
-                  onClick={logoutAcct}
                 >
                   {logoutIcon}
                   <Text
