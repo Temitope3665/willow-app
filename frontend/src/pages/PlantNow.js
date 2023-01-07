@@ -25,7 +25,7 @@ import TextInput from "../components/TextInputs/TextInput";
 const PlantNow = () => {
   const [region, setRegion] = useState('');
   const [tree, setTree] = useState('');
-  const [walletAddr, setWalletAddr] = useState("");
+  const [walletAddr, setWalletAddr] = useState(localStorage.getItem('wallet_addr') || "");
   const [treeAddr, setTreeAddr] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -154,6 +154,7 @@ const PlantNow = () => {
             onChange={(e) => setWalletAddr(e.target.value)}
             maxLength={35}
             minLength={26}
+            isReadOnly={localStorage.getItem('wallet_addr') ? true : false}
           />
           <TextInput
             placeholder="Input intended tree location address"

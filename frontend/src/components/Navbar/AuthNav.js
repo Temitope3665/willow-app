@@ -5,9 +5,11 @@ import { logoutIcon } from "../../assets/svgs/svg";
 import { logoutAcct } from "../../firebase";
 import { Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
+import { useNavigate } from "react-router-dom";
 
 const AuthNav = () => {
   const walletAddr = localStorage.getItem("wallet_addr");
+  const navigate = useNavigate();
   return (
     <Flex
       bg="brand.green"
@@ -65,7 +67,7 @@ const AuthNav = () => {
               </Text>
             </MenuButton>
             <MenuList>
-              <MenuItem onClick={logoutAcct}>
+              <MenuItem onClick={() => { logoutAcct(); navigate('/') }}>
                 <Flex
                   alignItems="center"
                   style={{ transition: "all 0.8s ease" }}
